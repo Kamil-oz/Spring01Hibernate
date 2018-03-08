@@ -24,13 +24,13 @@ public class Author {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotBlank
 	private String firstName;
-	
+
 	@NotBlank
 	private String lastName;
-	
+
 	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	private List<Book> books = new ArrayList<>();
 
@@ -39,11 +39,14 @@ public class Author {
 
 	@Email
 	private String email;
-	
+
 	@IsAdult
 	private int yearOfBirth;
-	
-	
+
+	public String getFullName() {
+		return firstName + " " + lastName;
+	}
+
 	public int getYearOfBirth() {
 		return yearOfBirth;
 	}

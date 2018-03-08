@@ -18,6 +18,7 @@ import pl.coderslab.model.Publisher;
 public class PublisherDao {
 	@PersistenceContext
 	EntityManager entityManager;
+	
 
 	public Collection<Publisher> getAll() {
 		Query query = entityManager.createQuery("SELECT p FROM Publisher p");

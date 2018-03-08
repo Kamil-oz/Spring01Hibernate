@@ -17,6 +17,10 @@
 		<form:select path="publisher" items="${publishers}" itemValue="id"
 			itemLabel="name" /><br>
 		<form:errors path="publisher" /><br>
+		<form:select path="authors" items="${authors}" itemValue="id"
+			itemLabel="fullName" /><br>
+		<form:errors path="authors" /><br>
+		
 		<form:input path="pages" type="number" min="1" step="1" />
 		<form:errors path="pages"/>
 		<form:input path="rating" type="number" max="10" min="1" step="1"

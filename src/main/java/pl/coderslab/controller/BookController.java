@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import pl.coderslab.dao.AuthorDao;
 import pl.coderslab.dao.BookDao;
 import pl.coderslab.dao.PublisherDao;
+import pl.coderslab.model.Author;
 import pl.coderslab.model.Book;
 import pl.coderslab.model.Publisher;
 
@@ -92,7 +93,11 @@ public class BookController {
 		model.addAttribute("books", bookDao.getAll());
 		return "showbooks";
 	}
-
+	@ModelAttribute("authors")
+	public Collection<Author> authors(){
+		return authorDao.getAll();
+	}
+	
 	@ModelAttribute("publishers")
 	public Collection<Publisher> publishers() {
 		return publisherDao.getAll();
