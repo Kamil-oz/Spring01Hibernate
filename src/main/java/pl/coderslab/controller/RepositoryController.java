@@ -88,6 +88,20 @@ public class RepositoryController {
 		model.addAttribute("books", books);
 		return "showbooks";
 	}
+	
+	@GetMapping("/find/query/{title}")
+	public String findBookUsingQueryByTitle(Model model, @PathVariable String title) {
+		model.addAttribute("books", bookRepository.findBookUsingQueryByTitle(title));
+		return "showbooks";
+	}
+	
+	@GetMapping("/find/author/query/{id}")
+	public String findBookUsingQueryByAuthor(Model model, @PathVariable long id) {
+		model.addAttribute("books", bookRepository.findBookUsingQueryByAuthor(id));
+		return "showbooks";
+	}
+	
+
 	@GetMapping("/find/{title}")
 	public String findOneByTitle(Model model, @PathVariable String title) {
 		List<Book> books = new ArrayList<>(); 
